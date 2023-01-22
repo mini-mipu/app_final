@@ -18,7 +18,12 @@ class HistoryPage extends StatelessWidget {
             if (snapshot.hasData){
               List myData = snapshot.data as List;
               return ListView.builder(itemCount: myData.length, itemBuilder: (context, idx){
-                return ListTile(title: Text(myData[idx]['id'].toString()), subtitle: Text('${myData[idx]['time']}\n${myData[idx]['mealType']}\n${myData[idx]['restaurant']}\n${myData[idx]['food']}'),);
+                return ListTile(
+                  title: Text(myData[idx]['time'].toString()),
+                  subtitle: Text('${myData[idx]['mealType']}'),
+                  trailing: Text('${myData[idx]['restaurant']}\n${myData[idx]['food']}'),
+                  onTap: (){print('123');},
+                );
               });
             }
             return Container();
